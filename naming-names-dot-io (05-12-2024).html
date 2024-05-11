@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>naming-names.io</title>
+
+  <style>
+    @font-face{
+      font-family: bodoni;
+      src: url(fonts/bodoni/BodoniFLF-Roman.ttf);
+    }
+    @font-face{
+      font-family: monolith;
+      src: url(fonts/MonolithFreebie-LightItalic.otf);
+    }
+  </style>
+
+
+  <script>
+
+    function vowel() {
+      const vowels = ["a","e","i","o","u"]
+      var random = Math.floor(Math.random() * vowels.length);
+      let vowel = vowels[random];
+      return vowel;
+    }
+    function diphthong() {
+      const diphthongs = [
+        "ae","ai","ao","au",
+        "ea","ei","eo","eu",
+        "ia","ie","io","iu",
+        "oa","oe","oi","ou",
+        "ua","ue","ui","uo",
+      ];
+      var randomNumber = Math.floor(Math.random() * diphthongs.length);
+      let diphthong = diphthongs[randomNumber];
+      return diphthong;
+    }
+    function consonant() {
+      const consonants= [
+        "b","c","ch", "d","f",
+        "g","h","j","k",
+        "l","m","n","ng","p","ph",
+        "q","r","s","sh",
+        "t","th","v","w",
+        "x","y","z","zh"
+      ];
+      var randomNumber = Math.floor(Math.random() * consonants.length);
+      let consonant = consonants[randomNumber];
+      return consonant;
+    }
+    function consonantFilipino() {
+      const consonants= [
+        "f","v",
+        "c","k","q","qu", "g",
+        "ts","j","dy","diy",
+        "t","d",
+        "p","b",
+        "h","j",
+        "l","ll","r",
+        "m","n",
+        "ng",
+        "ñ",
+        "s","si","siy",
+        "w",
+        "ks",
+        "y","z"
+      ];
+      var randomNumber = Math.floor(Math.random() * consonants.length);
+      let consonant = consonants[randomNumber];
+      return consonant;
+    }
+
+
+
+    function sejofeo(length) {
+      var result = '';
+      for (var i = 0; i < length; i++) {
+        result += consonant();
+        result += vowel();
+        result += consonant();
+        result += vowel();
+        result += consonant();
+        result += diphthong();
+      }
+      return result;
+    }
+    function filipino(length) {
+      var result = '';
+      for (var i = 0; i < length; i++) {
+        result += consonantFilipino();
+        result += vowel();
+        result += consonantFilipino();
+        result += vowel();
+        result += consonantFilipino();
+        result += vowel();
+      }
+      return result;
+    }
+  </script>
+
+
+
+</head>
+
+<body style="background-color: #939492; color: #524E4E; text-align: center; font-size: larger;">
+
+  <h1 style="color: #F1DE71; font-family: monolith;">
+    naming-names . io
+  </h1>
+  
+  <button onclick="document.getElementById('output').innerHTML = sejofeo(1)"
+  style="background-color: #939492; font-family: monospace; font-size: medium;">
+    generate a name
+  </button>
+
+  <p id="output" style="color: #292929; font-family: Calibri; font-size: larger;"></p>
+
+  <button onclick="document.getElementById('output1').innerHTML = filipino(1)"
+  style="background-color: #939492; font-family: monospace; font-size: medium;">
+    filipino
+  </button>
+
+  <p id="output1" style="color: #292929; font-family: Calibri; font-size: larger;"></p>
+
+</body>
+
+
+
+</html>
